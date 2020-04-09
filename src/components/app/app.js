@@ -1,41 +1,21 @@
 import React from 'react';
 import { Route, Switch} from 'react-router-dom';
 import './app.scss';
-import WithMoviesDbService from "../hoc/with-movies-db-services";
-import { connect } from 'react-redux';
-import { getMovies } from "../../actions";
-import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator";
+import Header from "../header";
+import HomePage from "../pages/home-page";
 
-const App = () => {
-  return (
-    <Switch>
-      <Route path='/' component={Spinner} exact/>
-      <Route path='/movies' component={ErrorIndicator}/>
-    </Switch>
-  )
-};
-const mapStateToProps = (state) => {
-  return {
-    movies: state.movies
-  }
-};
-const mapDispatchToProps = (dispatch, ownProps) => {
-  const { moviesDbService } = ownProps;
-  return {
-    fetchMovies: () => {
-      moviesDbService
-        .getMovies()
-        .then((data) => {
-          dispatch(getMovies(data))
-        })
-    }
-  }
-};
+export default class App extends React.Component {
 
-export default
-WithMoviesDbService(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App));
+  render() {
+    return(
+      <div className="App">
+        <Header/>
+        <Switch>
+          <Route path='/' component={HomePage} exact/>
+          <Route path='/movies' component={ErrorIndicator}/>
+        </Switch>
+      </div>
+      )
+  }
+}

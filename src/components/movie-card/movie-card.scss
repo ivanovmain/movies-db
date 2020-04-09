@@ -1,0 +1,31 @@
+.Card{
+  width: 164px;
+  justify-self: center;
+}
+.poster-wrapper{
+  position: relative;
+  width: 100%;
+}
+.poster-wrapper img {
+  width: 100%;
+}
+.favorite-card{
+  position: absolute;
+  top: 80%;
+  right: -5%;
+}
+.Card-label{
+  color: #060077;
+}
+.Card-rate{
+  position: absolute;
+  top: 4px;
+  left: -4px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 7px;
+  padding-left: 7px;
+  color: #fff;
+  background-color: #3bb33b;
+  font-weight: 500;
+}

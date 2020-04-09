@@ -4,3 +4,10 @@ export const getMovies = (movies) => {
     payload: movies
   }
 };
+
+export const getGenres = (genres) => {
+  return {
+    type: 'GET_GENRES',
+    payload: genres
+  }
+};
