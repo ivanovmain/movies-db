@@ -1,0 +1,23 @@
+.movie-wrapper{
+  padding-top: 30px;
+  display: flex;
+  .movie-poster{
+    width: 300px;
+    flex-shrink: 0;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  .movie-desc{
+    color: #1f1f1f;
+    font-weight: 600;
+    font-size: 22px;
+    .list-content{
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 400;
+      color: #3e3e3e;
+    }
+  }
+}

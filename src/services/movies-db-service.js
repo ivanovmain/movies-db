@@ -17,5 +17,13 @@ export default class MoviesDbService {
   getMovieGengres = async () => {
     const url = `${this._apiBase}genre/movie/list${this._apiKey}`;
     return this.getResource(url);
+  };
+  getMovie = async (movieId) => {
+    const url = `${this._apiBase}movie/${movieId}${this._apiKey}`;
+    return this.getResource(url);
+  };
+  searchMovie = async (str) => {
+    const url = `${this._apiBase}search/movie${this._apiKey}&query=${str}&page=1`;
+    return this.getResource(url);
   }
 }

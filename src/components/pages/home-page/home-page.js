@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './home-page.scss';
 import MovieCard from "../../movie-card";
-import { getMovies, getGenres } from "../../../actions";
+import { popularMoviesError, popularMoviesLoaded, popularMoviesRequsted, getGenres } from "../../../actions";
 import WithMoviesDbService from "../../hoc/with-movies-db-services";
 import { connect } from "react-redux";
 import Spinner from "../../spinner";
@@ -16,7 +16,6 @@ class HomePage extends Component {
     if(loading){
       return <Spinner/>
     }
-    console.log('test', movies)
     const moviesCards = movies.map((item) => {
       return <MovieCard key={item.id} genres={genres} movie={item} loading={loading}/>
     });
@@ -43,11 +42,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { moviesDbService } = ownProps;
   return {
     fetchMovies: () => {
+      dispatch(popularMoviesRequsted());
       moviesDbService
         .getPopularMovies()
         .then((data) => {
-          dispatch(getMovies(data.results))
+          dispatch(popularMoviesLoaded(data.results))
         })
+        .catch((err) => dispatch(popularMoviesError(err)))
     },
     fetchGenres: () => {
       moviesDbService

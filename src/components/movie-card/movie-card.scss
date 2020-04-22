@@ -15,7 +15,12 @@
   right: -5%;
 }
 .Card-label{
-  color: #060077;
+  a{
+    color: #060077;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
 }
 .Card-rate{
   position: absolute;
@@ -28,4 +33,9 @@
   color: #fff;
   background-color: #3bb33b;
   font-weight: 500;
+  box-sizing: border-box;
+  min-width: 37px;
+}
+.favorite-card-on{
+  color: #f60;
 }
